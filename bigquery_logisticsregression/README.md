@@ -6,7 +6,7 @@ You can watch the video demonstration of code here - https://youtu.be/pX4P6uG1Cu
 
 You can store the data in GCS bucket and import into bigquery. Once done follow the below steps
 
-Step 1 - Query table to quickly validate the load and get understanding of data 
+<b>Step 1 - Query table to quickly validate the load and get understanding of data </b>
 
 select
 age,	
@@ -28,7 +28,7 @@ y as target
 from
 `srivatsan-project.bank.bank_marketing` 
 
-Step 2 - Check target value distribution. This dataset target instances are imbalanced
+<b> Step 2 - Check target value distribution. This dataset target instances are imbalanced </b>
 
 select
 y as target, count(*)
@@ -36,7 +36,7 @@ from
 `srivatsan-project.bank.bank_marketing` 
 group by y	
 
-Step 3: Query to split data on train/validation and test
+<b> Step 3: Query to split data on train/validation and test </b>
 
 select 
 age, job, marital, education, 'default', balance, housing, loan,	
@@ -56,7 +56,7 @@ ROUND(ABS(RAND()),1) as split_field
 from
 `srivatsan-project.bank.bank_marketing` ) 
 
-Query 4: Store the data split into new table for using it in model. Creating physical table to 
+<b> Query 4: Store the data split into new table for using it in model. Creating physical table to keep consistent data sets from random splits </b>
 
 
 CREATE OR REPLACE table `bank.marketing_tab` AS
@@ -78,7 +78,7 @@ ROUND(ABS(RAND()),1) as split_field
 from
 `srivatsan-project.bank.bank_marketing` ) 
 
-=======
+<b> Query 5: validate target variable distribution in splits </b>
 
 select 
 dataframe, target, count(*)
@@ -86,7 +86,8 @@ from `srivatsan-project.bank.marketing_tab`
 group by dataframe, target
 order by dataframe
 
-=======
+<b> Query 6: Create Logistics Regression model </b>
+
 
 CREATE OR REPLACE MODEL
   `bank.marketing_model`
@@ -102,7 +103,7 @@ FROM
 WHERE
   dataframe = 'training'
 
-======
+<b> Query 7: Get Training and Feature Info from trained model </b>
 
 SELECT
   *
@@ -120,7 +121,7 @@ FROM
 FROM
   ML.WEIGHTS(MODEL `bank.marketing_model`)
 
-======
+<b> Query 8: Evaluate using the trained model </b>
 
 
 SELECT
@@ -137,7 +138,7 @@ FROM
     )
   )
 
-=====
+<b> Query 8: Predict new data using the trained model </b>
 
 
 SELECT
@@ -155,7 +156,7 @@ FROM
   )
 
 
-
+<b> Query 9: Add feature engineering to the model to increase model performance </b>
 
 
 CREATE OR REPLACE MODEL
@@ -178,7 +179,7 @@ FROM
 WHERE
   dataframe = 'training'
 
-========
+<b> Query 10: Get training and feature info from newly trained model </b>
 
 SELECT
   *
@@ -195,7 +196,8 @@ FROM
 FROM
   ML.WEIGHTS(MODEL `bank.marketing_model_feat`)
 
-========
+<b> Query 11: Evaluate the model </b>
+
 
 SELECT
   *
