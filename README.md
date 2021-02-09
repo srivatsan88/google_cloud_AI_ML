@@ -25,7 +25,7 @@ Detailed code walkthrough of different Google Cloud AI services available in thi
  
  This project is end to end demo of using BigQuery ML for feature engineering and for building Logistics Regression model
 
- <b>Quick Start Projects to learn GCP </b>
+ <h1><b>Quick Start Projects to learn GCP </b></h1>
  
  <b>Speech to Text API - </b> https://www.youtube.com/watch?v=ZkTiKPUSYj4
   
