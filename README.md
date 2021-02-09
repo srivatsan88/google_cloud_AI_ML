@@ -3,7 +3,7 @@ This repository contains code to learn AI and ML on Google Cloud Platform
 
 Detailed code walkthrough of different Google Cloud AI services available in this repo can be found in my video playlist - https://www.youtube.com/playlist?list=PL3N9eeOlCrP6Nhv4UFp67IsQ_TVDpXqXK
 
-<b>GCP AI Project Details <b>
+<h1><b>GCP AI Project Details <b></h1>
   
  <b>Project 1 - Telecom Churn on AI Platform Notebook and AI Platform Prediction  </b>
  
