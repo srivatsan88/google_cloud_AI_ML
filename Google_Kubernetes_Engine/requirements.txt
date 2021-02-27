@@ -1,0 +1,10 @@
+flask
+scikit-learn==0.22
+xgboost==0.90
+nltk
+joblib
+gunicorn
+healthcheck
+six
+
+#Run this file with - pip3 install -r requirements.txt
