@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: complaintsclassifier
+spec:
+  type: LoadBalancer
+  selector:
+    app: complaintsclassifier
+  ports:
+  - port: 80
+    targetPort: 8080

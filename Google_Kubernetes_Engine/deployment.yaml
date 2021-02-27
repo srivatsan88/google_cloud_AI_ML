@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: complaints
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: complaintsclassifier
+  template:
+    metadata:
+      labels:
+        app: complaintsclassifier
+    spec:
+      containers:
+      - name: complaints-app
+        image: gcr.io/srivatsan-project/complaintsapi
+        ports:
+        - containerPort: 8080
+        env:
+          - name: PORT
+            value: "8080"
