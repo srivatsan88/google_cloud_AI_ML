@@ -1,0 +1,7 @@
+tensorflow
+streamlit
+pillow
+numpy
+requests
+
+#Run this file with - pip3 install -r requirements.txt

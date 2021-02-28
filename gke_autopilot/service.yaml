@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: imageclassifier
+spec:
+  type: LoadBalancer
+  selector:
+    app: imageclassifier
+  ports:
+  - port: 80
+    targetPort: 8501
